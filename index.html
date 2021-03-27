@@ -135,7 +135,48 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>基础<br>    左值和右值：右值用的是对象的值，左值用的是对象的身份。<br>        赋值运算使用左值做左对象，得到的仍然是一个左值。<br>        取地址符作用于一个左值，返回一个右值。<br>        decltype（）中的函数表达式求值结果如果是左值，则得到一个引用类型。<br>        &lt;&lt;没有明确定义什么时候以及如何对运算对象求值，所以计算对象之间不要有关系。如cout&lt;&lt;i&lt;&lt;i++;是未定义的。<br>        f()+g()*h();如果影响同一对象，则会产生未定义的行为。因为没有规定f(),g(),h()什么时候计算。<br>    算数运算符<br>        %取模，取余运算，m%n结果与同符号。<br>        如果对象非常大，在范围for语句中使用引用来避免对对象的复制。<br>        不要使用连续的关系运算符进行比较。例如：a&lt;b&lt;c;如果a&lt;b,那么当c&gt;1时表达式为真。<br>        if(val==true)；只有当val=1时才为真。<br>    赋值运算符：<br>        赋值运算符的左侧必须是可修改的左值。<br>        赋值运算满足右结合律。<br>        赋值运算符的优先级较低，所以在条件语句中，建议加上括号。<br>    递增和递减运算符：<br>        前置版本：++i；后置版本：i++；除非必须，否则一律使用前置版本。后置版本会额外消耗资源。<br>        后置版本在自身所在的表达式中，先将自身加1，在用原来没有加过的参加计算。<br>    成员访问运算符：<br>        (*p).size==p-&gt;size;<br>        vector<int>::iterator;//指向存有int类型元素的容器的迭代器。<br>    条件运算符：<br>        cond?expr1:expr2;cond值为真对ecpr1求值并返回。否则对expr2求值并返回。<br>    位运算符：<br>        建议只将位运算符用于处理无符号数。<br>        &lt;&lt;,&gt;&gt;左移和右移运算符<br>        ~位求反运算符。<br>        &amp;，|，^位与，位或，位异或运算符。<br>    sizeof运算符：<br>        sizeof(type) 计算类型的大小<br>        sizeof expr   计算变量实际类型的大小<br>        Sales_data data,*p;<br>        sizeof (Sales_data)==sizeof data ==sizeof *p;<br>        sizeof不会实际计算运算对象的值。所以即使p未初始化也不会报错。<br>        sizeof 会计算整个数组的大小。sizeof(ia)/sizeof(<em>ia)返回数组元素的数量。string和vector不行。<br>    类型转换：<br>        显示转换：<br>            cast-name<type>(expreesion);<br>            cast指定了只想的是哪一种转换。<br>            static_cast:不包含底层const的转换，都可以使用static_cast；将较大的算术类型转化为较小的，如：将两个整型相除并转化为double。或者执行编译器无法自动执行的类型转换，如：将存入void</em>中的指针恢复为原来的类型。<br>            const_cast:只能用于改变运算对象的底层const。</p>
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="左值和右值："><a href="#左值和右值：" class="headerlink" title="左值和右值："></a>左值和右值：</h2><pre><code>    右值用的是对象的值，左值用的是对象的身份。
+    赋值运算使用左值做左对象，得到的仍然是一个左值。
+    取地址符作用于一个左值，返回一个右值。
+    decltype（）中的函数表达式求值结果如果是左值，则得到一个引用类型。
+    &lt;&lt;没有明确定义什么时候以及如何对运算对象求值，所以计算对象之间不要有关系。如cout&lt;&lt;i&lt;&lt;i++;是未定义的。
+    f()+g()*h();如果影响同一对象，则会产生未定义的行为。因为没有规定f(),g(),h()什么时候计算。
+</code></pre>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><pre><code>    %取模，取余运算，m%n结果与同符号。
+    如果对象非常大，在范围for语句中使用引用来避免对对象的复制。
+    不要使用连续的关系运算符进行比较。例如：a&lt;b&lt;c;如果a&lt;b,那么当c&gt;1时表达式为真。
+    if(val==true)；只有当val=1时才为真。
+</code></pre>
+<h2 id="赋值运算符："><a href="#赋值运算符：" class="headerlink" title="赋值运算符："></a>赋值运算符：</h2><pre><code>    赋值运算符的左侧必须是可修改的左值。
+    赋值运算满足右结合律。
+    赋值运算符的优先级较低，所以在条件语句中，建议加上括号。
+</code></pre>
+<h2 id="递增和递减运算符："><a href="#递增和递减运算符：" class="headerlink" title="递增和递减运算符："></a>递增和递减运算符：</h2><pre><code>    前置版本：++i；后置版本：i++；除非必须，否则一律使用前置版本。后置版本会额外消耗资源。
+    后置版本在自身所在的表达式中，先将自身加1，在用原来没有加过的参加计算。
+</code></pre>
+<h2 id="成员访问运算符："><a href="#成员访问运算符：" class="headerlink" title="成员访问运算符："></a>成员访问运算符：</h2><pre><code>    (*p).size==p-&gt;size;
+    vector&lt;int&gt;::iterator;//指向存有int类型元素的容器的迭代器。
+</code></pre>
+<h2 id="条件运算符："><a href="#条件运算符：" class="headerlink" title="条件运算符："></a>条件运算符：</h2><pre><code>    cond?expr1:expr2;cond值为真对ecpr1求值并返回。否则对expr2求值并返回。
+</code></pre>
+<h2 id="位运算符："><a href="#位运算符：" class="headerlink" title="位运算符："></a>位运算符：</h2><pre><code>    建议只将位运算符用于处理无符号数。
+    &lt;&lt;,&gt;&gt;左移和右移运算符
+    ~位求反运算符。
+    &amp;，|，^位与，位或，位异或运算符。
+</code></pre>
+<h2 id="sizeof运算符："><a href="#sizeof运算符：" class="headerlink" title="sizeof运算符："></a>sizeof运算符：</h2><pre><code>    sizeof(type) 计算类型的大小
+    sizeof expr   计算变量实际类型的大小
+    Sales_data data,*p;
+    sizeof (Sales_data)==sizeof data ==sizeof *p;
+    sizeof不会实际计算运算对象的值。所以即使p未初始化也不会报错。
+    sizeof 会计算整个数组的大小。sizeof(ia)/sizeof(*ia)返回数组元素的数量。string和vector不行。
+</code></pre>
+<h2 id="类型转换："><a href="#类型转换：" class="headerlink" title="类型转换："></a>类型转换：</h2><pre><code>    显示转换：
+        cast-name&lt;type&gt;(expreesion);
+        cast指定了只想的是哪一种转换。
+        static_cast:不包含底层const的转换，都可以使用static_cast；将较大的算术类型转化为较小的，如：将两个整型相除并转化为double。或者执行编译器无法自动执行的类型转换，如：将存入void*中的指针恢复为原来的类型。
+        const_cast:只能用于改变运算对象的底层const。
+</code></pre>
 
       
     </div>
@@ -214,8 +255,73 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>指针<br>    定义 type *name，name为指向type类型的指针<br>    指针存放某个对象的地址<br>    不能定义指向引用的指针<br>    指针类型必须和其所指对象一致（例外1：允许一个常量的指针指向一个非常量对象）<br>    *、&amp;在声明语句中用于组成符合类型int *p是一个指针，int &amp;p是一个引用<br>             在表达式中为运算符，a=<em>p表示的是将指针p指向的内容赋值给a，</em>p=&amp;a表示的是将a的地址赋值给指针p<br>    空指针：int *p=nullptr(c++11)推荐使用<br>                  int *p=0<br>                  int *p=NULL<br>                  int a=0;int <em>p=a;(×)<br>    建议初始化所有指针<br>    void</em> 空指针可以存放任意对象的地址<br>    指向指针的指针 int *q; int**p=&q;p为指向指针的指针<br>    指向指针的引用 int *q; int <em>&amp;p=q;p为指向指针的引用<br>    对声明语句从右向左读有助于理解变量<br>对于指针在表达式中 <em>p代表指向的对象，p代表指针地址<br>对于普通变量在表达式中 p代表值，&amp;p代表地址。<br>const限定符<br>    定义一个值不能被改变的变量<br>    const int bufsize=100；<br>    const定义的常量只在当前文件中有效<br>    extern const int bufsize=100;<br>    次变量可以在不同文件中有效<br>    const的引用：<br>        只能用常量引用来给常量取别名<br>        const int a=100;<br>        const int &amp;b=a;<br>        int &amp;c=a(×)<br>    const引用可能引用的是一个并非常量的对象<br>        int a = 1;<br>    int&amp; b = a;<br>    const int &amp; c = a;<br>    std::cout &lt;&lt; c;//输出1<br>    b = 2;<br>    std::cout &lt;&lt; c;//输出2<br>  允许一个常量的指针指向一个非常量对象<br>    const指针：<br>        <em>const name=&amp;obj；<br>        指向常量的指针才能指向常量，并且不能改变指向对象的值。<br>        int b=10;int <em>const a=&b;a为指向int类型的常量指针<br>        const double c=10;const double <em>const d=&c;d为指向双精度浮点数常量的常量指针（运用声明语句从右到左读）<br>        注意：const int &amp;a=0；是对的。<br>                    int &amp;a=0；是错的。<br>    顶层const：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19528953/article/details/50922303">https://blog.csdn.net/qq_19528953/article/details/50922303</a><br>        const修饰的对象不能被修改。<br>    常量表达式：<br>        值不会改变并且在编译过程就能得到结果的表达式。<br>        声明：c++11规定可以用constexpr来定义一个常量表达式。<br>        constexpr size=0;<br>        constexpr int</em> p=&c;<em>p是一个顶层const；</em>p是一个指向整数的常量指针。（与const int</em> p有很大区别)<br>处理类型<br>    类型别名：typedef double wage,<em>p;wage是double的别名，</em>p是double</em>的别名。<br>                    c++11：using wage=double；<br>    auto类型：必须初始化。auto类型的变量会根据初始化的结果推断变量的类型。auto会忽略掉顶层const，保留底层const<br>                    const int a=i;&amp;b=a;<br>                    auto s1=a/b;s1为int<br>                    auto p=&a;p是指向int类型常量的指针（对常量取地址是一种底层const）<br>    decltype类型指示符：decltype(f()) sum=x;sum类型为f的返回类型。=x为初始化。<br>                                        decltype（</em>p）得到的是引用，</em>p被当作表达式，解引用会得到引用类型<br>                                        decltype（（i））得到的是引用，变量加上括号，系统会认为它是表达式，并得到引用类型<br>                                        decltype（a=b）赋值语句会产生引用类型<br>                                        引用类型必须初始化。<br>自定义数据结构：<br>    struct name{}a,*p;<br>    c++11规定可以给类内成员定义一个类内初始值。<br>    头文件保护#define
-    </p>
+        <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><pre><code>定义 type *name，name为指向type类型的指针
+指针存放某个对象的地址
+不能定义指向引用的指针
+指针类型必须和其所指对象一致（例外1：允许一个常量的指针指向一个非常量对象）
+*、&amp;在声明语句中用于组成符合类型int *p是一个指针，int &amp;p是一个引用
+         在表达式中为运算符，a=*p表示的是将指针p指向的内容赋值给a，*p=&amp;a表示的是将a的地址赋值给指针p
+空指针：int *p=nullptr(c++11)推荐使用
+              int *p=0
+              int *p=NULL
+              int a=0;int *p=a;(×)
+建议初始化所有指针
+void* 空指针可以存放任意对象的地址
+指向指针的指针 int *q; int**p=&amp;q;p为指向指针的指针
+指向指针的引用 int *q; int *&amp;p=q;p为指向指针的引用
+对声明语句从右向左读有助于理解变量
+对于指针在表达式中 *p代表指向的对象，p代表指针地址
+对于普通变量在表达式中 p代表值，&amp;p代表地址。
+</code></pre>
+<h1 id="const限定符"><a href="#const限定符" class="headerlink" title="const限定符"></a>const限定符</h1><pre><code>定义一个值不能被改变的变量
+const int bufsize=100；
+const定义的常量只在当前文件中有效
+extern const int bufsize=100;
+次变量可以在不同文件中有效
+const的引用：
+    只能用常量引用来给常量取别名
+    const int a=100;
+    const int &amp;b=a;
+    int &amp;c=a(×)
+const引用可能引用的是一个并非常量的对象
+    int a = 1;
+int&amp; b = a;
+const int &amp; c = a;
+std::cout &lt;&lt; c;//输出1
+b = 2;
+std::cout &lt;&lt; c;//输出2
+允许一个常量的指针指向一个非常量对象
+const指针：
+    *const name=&amp;obj；
+    指向常量的指针才能指向常量，并且不能改变指向对象的值。
+    int b=10;int *const a=&amp;b;a为指向int类型的常量指针
+    const double c=10;const double *const d=&amp;c;d为指向双精度浮点数常量的常量指针（运用声明语句从右到左读）
+    注意：const int &amp;a=0；是对的。
+                int &amp;a=0；是错的。
+顶层const：https://blog.csdn.net/qq_19528953/article/details/50922303
+    const修饰的对象不能被修改。
+常量表达式：
+    值不会改变并且在编译过程就能得到结果的表达式。
+    声明：c++11规定可以用constexpr来定义一个常量表达式。
+    constexpr size=0;
+    constexpr int* p=&amp;c;*p是一个顶层const；*p是一个指向整数的常量指针。（与const int* p有很大区别)
+</code></pre>
+<h1 id="处理类型"><a href="#处理类型" class="headerlink" title="处理类型"></a>处理类型</h1><pre><code>类型别名： typedef double wage,*p;wage是double的别名，*p是double*的别名。
+                c++11：using wage=double；
+auto类型： 必须初始化。auto类型的变量会根据初始化的结果推断变量的类型。auto会忽略掉顶层const，保留底层const
+                const int a=i;&amp;b=a;
+                auto s1=a/b;s1为int
+                auto p=&amp;a;p是指向int类型常量的指针（对常量取地址是一种底层const）
+## decltype类型指示符： ##decltype(f()) sum=x;sum类型为f的返回类型。=x为初始化。
+                                    decltype（*p）得到的是引用，*p被当作表达式，解引用会得到引用类型
+                                    decltype（（i））得到的是引用，变量加上括号，系统会认为它是表达式，并得到引用类型
+                                    decltype（a=b）赋值语句会产生引用类型
+                                    引用类型必须初始化。
+</code></pre>
+<h1 id="自定义数据结构："><a href="#自定义数据结构：" class="headerlink" title="自定义数据结构："></a>自定义数据结构：</h1><pre><code>struct name&#123;&#125;a,*p;
+c++11规定可以给类内成员定义一个类内初始值。
+头文件保护#define
+</code></pre>
 
       
     </div>
@@ -254,7 +360,24 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>算术类型<br>    带符号类型int short、long、long long。可以在他们前面添加unsigned以得到无符号类型，unsigned int可以简写为unsigned<br>    char类型和bool类型不要出现在算数表达式中，char类型在有些机器上有符号，而在另外一些机器上没有。<br>    浮点数运算推荐使用double而不是float<br>    当赋值给无符号类型超出它表示范围的值时，实际得到的值是初始值对无符号类型表示数值总值取模后的余数<br>    当赋值给带符号类型超出它表示范围的值时，结果是未定义的<br>    当一个 算术表达式中既有无符号数又有有符号数时，有符号数会自动转化为无符号数<br>变量<br>    初始化：初始化！=赋值<br>    列表初始化：int a=0;int a={0};int a{0};int a(0);2,3为列表初始化<br>    当列表初始化涉及到可能丢失信息时，初始化不会被执行<br>    如int a{1.1}是错误的<br>    默认初始化：没有显式初始化的变量会被赋予默认值。但是定义在函数体内部的变量不会被默认初始化。类的对象有类决定。<br>    变量声明和定义：声明使得变量为程序所知，声明了变量即可使用在其他程序定义的名字<br>    声明方法：在变量名前添加extern并且不要显式地初始化变量。<br>引用<br>    指的是左值引用，即为变量取一个新的名字<br>    int a=0;int &amp;b=a;b指向了a</p>
+        <h2 id="算术类型"><a href="#算术类型" class="headerlink" title="算术类型"></a>算术类型</h2><pre><code>带符号类型int short、long、long long。可以在他们前面添加unsigned以得到无符号类型，unsigned int可以简写为unsigned
+char类型和bool类型不要出现在算数表达式中，char类型在有些机器上有符号，而在另外一些机器上没有。
+浮点数运算推荐使用double而不是float
+当赋值给无符号类型超出它表示范围的值时，实际得到的值是初始值对无符号类型表示数值总值取模后的余数
+当赋值给带符号类型超出它表示范围的值时，结果是未定义的
+当一个 算术表达式中既有无符号数又有有符号数时，有符号数会自动转化为无符号数
+</code></pre>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><pre><code>初始化：初始化！=赋值
+列表初始化：int a=0;int a=&#123;0&#125;;int a&#123;0&#125;;int a(0);2,3为列表初始化
+当列表初始化涉及到可能丢失信息时，初始化不会被执行
+如int a&#123;1.1&#125;是错误的
+默认初始化：没有显式初始化的变量会被赋予默认值。但是定义在函数体内部的变量不会被默认初始化。类的对象有类决定。
+变量声明和定义：声明使得变量为程序所知，声明了变量即可使用在其他程序定义的名字
+声明方法：在变量名前添加extern并且不要显式地初始化变量。
+</code></pre>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><pre><code>指的是左值引用，即为变量取一个新的名字
+int a=0;int &amp;b=a;b指向了a
+</code></pre>
 
       
     </div>
@@ -293,8 +416,27 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>main函数的返回值必须是一个int类型。<br>输入与输出初见：<br>    标准输入：cin<br>      标准输出：cout<br>      标准错误：cerr<br>      操纵符：endl，结束当前行并进行缓冲刷新（保证所有输出都写如输出流而不是在内存缓冲区中，可以防止程序崩溃输入未写入输出流中导致的错误位置误判）<br>注释：<br>    单行注释：//<br>      界定符对注释：/<em>，</em>/，注意：不能嵌套<br>    ctrl+k+c 快速注释选中内容<br>    ctrl+k+u快速取消选中注释内容<br>    ctrl+k+d快速对齐<br>控制流<br>    while<br>    for<br>    文件结束符：eof，标志着文件的结束，windows系统中通过ctrl+z键来输入文件结束符<br>    if if(cin&lt;&lt;***)可以保证输入不为空。<br>调试<br>    调试时从系统给出的第一个错误开始调试，并且每修正一个错误后就重新调试。</p>
-<p>类<br>    成员函数也成为加法</p>
+        <p>main函数的返回值必须是一个int类型。</p>
+<h2 id="输入与输出初见："><a href="#输入与输出初见：" class="headerlink" title="输入与输出初见："></a>输入与输出初见：</h2><pre><code>标准输入：cin
+  标准输出：cout
+  标准错误：cerr
+  操纵符：endl，结束当前行并进行缓冲刷新（保证所有输出都写如输出流而不是在内存缓冲区中，可以防止程序崩溃输入未写入输出流中导致的错误位置误判）
+</code></pre>
+<h2 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h2><pre><code>单行注释：//
+  界定符对注释：/*，*/，注意：不能嵌套
+ctrl+k+c 快速注释选中内容
+ctrl+k+u快速取消选中注释内容
+ctrl+k+d快速对齐
+</code></pre>
+<h2 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h2><pre><code>while
+for
+文件结束符：eof，标志着文件的结束，windows系统中通过ctrl+z键来输入文件结束符
+if if(cin&lt;&lt;***)可以保证输入不为空。
+</code></pre>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><pre><code>调试时从系统给出的第一个错误开始调试，并且每修正一个错误后就重新调试。
+</code></pre>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><pre><code>成员函数也成为加法
+</code></pre>
 
       
     </div>

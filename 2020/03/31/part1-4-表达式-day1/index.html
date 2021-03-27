@@ -6,15 +6,15 @@
   
   <title>part1_4_表达式_day1 | wgl的日常</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="基础    左值和右值：右值用的是对象的值，左值用的是对象的身份。        赋值运算使用左值做左对象，得到的仍然是一个左值。        取地址符作用于一个左值，返回一个右值。        decltype（）中的函数表达式求值结果如果是左值，则得到一个引用类型。        &lt;&lt;没有明确定义什么时候以及如何对运算对象求值，所以计算对象之间不要有关系。如cout&lt;&amp;l">
+  <meta name="description" content="基础左值和右值：    右值用的是对象的值，左值用的是对象的身份。     赋值运算使用左值做左对象，得到的仍然是一个左值。     取地址符作用于一个左值，返回一个右值。     decltype（）中的函数表达式求值结果如果是左值，则得到一个引用类型。     &lt;&lt;没有明确定义什么时候以及如何对运算对象求值，所以计算对象之间不要有关系。如cout&lt;&lt;i&lt;&lt;i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="part1_4_表达式_day1">
 <meta property="og:url" content="http://example.com/2020/03/31/part1-4-%E8%A1%A8%E8%BE%BE%E5%BC%8F-day1/index.html">
 <meta property="og:site_name" content="wgl的日常">
-<meta property="og:description" content="基础    左值和右值：右值用的是对象的值，左值用的是对象的身份。        赋值运算使用左值做左对象，得到的仍然是一个左值。        取地址符作用于一个左值，返回一个右值。        decltype（）中的函数表达式求值结果如果是左值，则得到一个引用类型。        &lt;&lt;没有明确定义什么时候以及如何对运算对象求值，所以计算对象之间不要有关系。如cout&lt;&amp;l">
+<meta property="og:description" content="基础左值和右值：    右值用的是对象的值，左值用的是对象的身份。     赋值运算使用左值做左对象，得到的仍然是一个左值。     取地址符作用于一个左值，返回一个右值。     decltype（）中的函数表达式求值结果如果是左值，则得到一个引用类型。     &lt;&lt;没有明确定义什么时候以及如何对运算对象求值，所以计算对象之间不要有关系。如cout&lt;&lt;i&lt;&lt;i">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-31T12:06:39.000Z">
-<meta property="article:modified_time" content="2021-03-26T13:09:41.420Z">
+<meta property="article:modified_time" content="2021-03-27T07:56:54.192Z">
 <meta property="article:author" content="WGL">
 <meta name="twitter:card" content="summary">
   
@@ -99,7 +99,48 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>基础<br>    左值和右值：右值用的是对象的值，左值用的是对象的身份。<br>        赋值运算使用左值做左对象，得到的仍然是一个左值。<br>        取地址符作用于一个左值，返回一个右值。<br>        decltype（）中的函数表达式求值结果如果是左值，则得到一个引用类型。<br>        &lt;&lt;没有明确定义什么时候以及如何对运算对象求值，所以计算对象之间不要有关系。如cout&lt;&lt;i&lt;&lt;i++;是未定义的。<br>        f()+g()*h();如果影响同一对象，则会产生未定义的行为。因为没有规定f(),g(),h()什么时候计算。<br>    算数运算符<br>        %取模，取余运算，m%n结果与同符号。<br>        如果对象非常大，在范围for语句中使用引用来避免对对象的复制。<br>        不要使用连续的关系运算符进行比较。例如：a&lt;b&lt;c;如果a&lt;b,那么当c&gt;1时表达式为真。<br>        if(val==true)；只有当val=1时才为真。<br>    赋值运算符：<br>        赋值运算符的左侧必须是可修改的左值。<br>        赋值运算满足右结合律。<br>        赋值运算符的优先级较低，所以在条件语句中，建议加上括号。<br>    递增和递减运算符：<br>        前置版本：++i；后置版本：i++；除非必须，否则一律使用前置版本。后置版本会额外消耗资源。<br>        后置版本在自身所在的表达式中，先将自身加1，在用原来没有加过的参加计算。<br>    成员访问运算符：<br>        (*p).size==p-&gt;size;<br>        vector<int>::iterator;//指向存有int类型元素的容器的迭代器。<br>    条件运算符：<br>        cond?expr1:expr2;cond值为真对ecpr1求值并返回。否则对expr2求值并返回。<br>    位运算符：<br>        建议只将位运算符用于处理无符号数。<br>        &lt;&lt;,&gt;&gt;左移和右移运算符<br>        ~位求反运算符。<br>        &amp;，|，^位与，位或，位异或运算符。<br>    sizeof运算符：<br>        sizeof(type) 计算类型的大小<br>        sizeof expr   计算变量实际类型的大小<br>        Sales_data data,*p;<br>        sizeof (Sales_data)==sizeof data ==sizeof *p;<br>        sizeof不会实际计算运算对象的值。所以即使p未初始化也不会报错。<br>        sizeof 会计算整个数组的大小。sizeof(ia)/sizeof(<em>ia)返回数组元素的数量。string和vector不行。<br>    类型转换：<br>        显示转换：<br>            cast-name<type>(expreesion);<br>            cast指定了只想的是哪一种转换。<br>            static_cast:不包含底层const的转换，都可以使用static_cast；将较大的算术类型转化为较小的，如：将两个整型相除并转化为double。或者执行编译器无法自动执行的类型转换，如：将存入void</em>中的指针恢复为原来的类型。<br>            const_cast:只能用于改变运算对象的底层const。</p>
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="左值和右值："><a href="#左值和右值：" class="headerlink" title="左值和右值："></a>左值和右值：</h2><pre><code>    右值用的是对象的值，左值用的是对象的身份。
+    赋值运算使用左值做左对象，得到的仍然是一个左值。
+    取地址符作用于一个左值，返回一个右值。
+    decltype（）中的函数表达式求值结果如果是左值，则得到一个引用类型。
+    &lt;&lt;没有明确定义什么时候以及如何对运算对象求值，所以计算对象之间不要有关系。如cout&lt;&lt;i&lt;&lt;i++;是未定义的。
+    f()+g()*h();如果影响同一对象，则会产生未定义的行为。因为没有规定f(),g(),h()什么时候计算。
+</code></pre>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><pre><code>    %取模，取余运算，m%n结果与同符号。
+    如果对象非常大，在范围for语句中使用引用来避免对对象的复制。
+    不要使用连续的关系运算符进行比较。例如：a&lt;b&lt;c;如果a&lt;b,那么当c&gt;1时表达式为真。
+    if(val==true)；只有当val=1时才为真。
+</code></pre>
+<h2 id="赋值运算符："><a href="#赋值运算符：" class="headerlink" title="赋值运算符："></a>赋值运算符：</h2><pre><code>    赋值运算符的左侧必须是可修改的左值。
+    赋值运算满足右结合律。
+    赋值运算符的优先级较低，所以在条件语句中，建议加上括号。
+</code></pre>
+<h2 id="递增和递减运算符："><a href="#递增和递减运算符：" class="headerlink" title="递增和递减运算符："></a>递增和递减运算符：</h2><pre><code>    前置版本：++i；后置版本：i++；除非必须，否则一律使用前置版本。后置版本会额外消耗资源。
+    后置版本在自身所在的表达式中，先将自身加1，在用原来没有加过的参加计算。
+</code></pre>
+<h2 id="成员访问运算符："><a href="#成员访问运算符：" class="headerlink" title="成员访问运算符："></a>成员访问运算符：</h2><pre><code>    (*p).size==p-&gt;size;
+    vector&lt;int&gt;::iterator;//指向存有int类型元素的容器的迭代器。
+</code></pre>
+<h2 id="条件运算符："><a href="#条件运算符：" class="headerlink" title="条件运算符："></a>条件运算符：</h2><pre><code>    cond?expr1:expr2;cond值为真对ecpr1求值并返回。否则对expr2求值并返回。
+</code></pre>
+<h2 id="位运算符："><a href="#位运算符：" class="headerlink" title="位运算符："></a>位运算符：</h2><pre><code>    建议只将位运算符用于处理无符号数。
+    &lt;&lt;,&gt;&gt;左移和右移运算符
+    ~位求反运算符。
+    &amp;，|，^位与，位或，位异或运算符。
+</code></pre>
+<h2 id="sizeof运算符："><a href="#sizeof运算符：" class="headerlink" title="sizeof运算符："></a>sizeof运算符：</h2><pre><code>    sizeof(type) 计算类型的大小
+    sizeof expr   计算变量实际类型的大小
+    Sales_data data,*p;
+    sizeof (Sales_data)==sizeof data ==sizeof *p;
+    sizeof不会实际计算运算对象的值。所以即使p未初始化也不会报错。
+    sizeof 会计算整个数组的大小。sizeof(ia)/sizeof(*ia)返回数组元素的数量。string和vector不行。
+</code></pre>
+<h2 id="类型转换："><a href="#类型转换：" class="headerlink" title="类型转换："></a>类型转换：</h2><pre><code>    显示转换：
+        cast-name&lt;type&gt;(expreesion);
+        cast指定了只想的是哪一种转换。
+        static_cast:不包含底层const的转换，都可以使用static_cast；将较大的算术类型转化为较小的，如：将两个整型相除并转化为double。或者执行编译器无法自动执行的类型转换，如：将存入void*中的指针恢复为原来的类型。
+        const_cast:只能用于改变运算对象的底层const。
+</code></pre>
 
       
     </div>

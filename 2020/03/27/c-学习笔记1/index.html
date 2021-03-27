@@ -6,15 +6,15 @@
   
   <title>c++学习笔记1 | wgl的日常</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="main函数的返回值必须是一个int类型。输入与输出初见：    标准输入：cin      标准输出：cout      标准错误：cerr      操纵符：endl，结束当前行并进行缓冲刷新（保证所有输出都写如输出流而不是在内存缓冲区中，可以防止程序崩溃输入未写入输出流中导致的错误位置误判）注释：    单行注释：&#x2F;&#x2F;      界定符对注释：&#x2F;，&#x2F;，注意：不能嵌套    ctrl+k+c">
+  <meta name="description" content="main函数的返回值必须是一个int类型。 输入与输出初见：标准输入：cin   标准输出：cout   标准错误：cerr   操纵符：endl，结束当前行并进行缓冲刷新（保证所有输出都写如输出流而不是在内存缓冲区中，可以防止程序崩溃输入未写入输出流中导致的错误位置误判）  注释：单行注释：&#x2F;&#x2F;   界定符对注释：&#x2F;*，*&#x2F;，注意：不能嵌套 ctrl+k+c 快速注释选中内容 ctrl+k+u快">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++学习笔记1">
 <meta property="og:url" content="http://example.com/2020/03/27/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/index.html">
 <meta property="og:site_name" content="wgl的日常">
-<meta property="og:description" content="main函数的返回值必须是一个int类型。输入与输出初见：    标准输入：cin      标准输出：cout      标准错误：cerr      操纵符：endl，结束当前行并进行缓冲刷新（保证所有输出都写如输出流而不是在内存缓冲区中，可以防止程序崩溃输入未写入输出流中导致的错误位置误判）注释：    单行注释：&#x2F;&#x2F;      界定符对注释：&#x2F;，&#x2F;，注意：不能嵌套    ctrl+k+c">
+<meta property="og:description" content="main函数的返回值必须是一个int类型。 输入与输出初见：标准输入：cin   标准输出：cout   标准错误：cerr   操纵符：endl，结束当前行并进行缓冲刷新（保证所有输出都写如输出流而不是在内存缓冲区中，可以防止程序崩溃输入未写入输出流中导致的错误位置误判）  注释：单行注释：&#x2F;&#x2F;   界定符对注释：&#x2F;*，*&#x2F;，注意：不能嵌套 ctrl+k+c 快速注释选中内容 ctrl+k+u快">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-27T12:53:25.000Z">
-<meta property="article:modified_time" content="2021-03-26T12:56:50.355Z">
+<meta property="article:modified_time" content="2021-03-27T07:48:11.904Z">
 <meta property="article:author" content="WGL">
 <meta name="twitter:card" content="summary">
   
@@ -99,8 +99,27 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>main函数的返回值必须是一个int类型。<br>输入与输出初见：<br>    标准输入：cin<br>      标准输出：cout<br>      标准错误：cerr<br>      操纵符：endl，结束当前行并进行缓冲刷新（保证所有输出都写如输出流而不是在内存缓冲区中，可以防止程序崩溃输入未写入输出流中导致的错误位置误判）<br>注释：<br>    单行注释：//<br>      界定符对注释：/<em>，</em>/，注意：不能嵌套<br>    ctrl+k+c 快速注释选中内容<br>    ctrl+k+u快速取消选中注释内容<br>    ctrl+k+d快速对齐<br>控制流<br>    while<br>    for<br>    文件结束符：eof，标志着文件的结束，windows系统中通过ctrl+z键来输入文件结束符<br>    if if(cin&lt;&lt;***)可以保证输入不为空。<br>调试<br>    调试时从系统给出的第一个错误开始调试，并且每修正一个错误后就重新调试。</p>
-<p>类<br>    成员函数也成为加法</p>
+        <p>main函数的返回值必须是一个int类型。</p>
+<h2 id="输入与输出初见："><a href="#输入与输出初见：" class="headerlink" title="输入与输出初见："></a>输入与输出初见：</h2><pre><code>标准输入：cin
+  标准输出：cout
+  标准错误：cerr
+  操纵符：endl，结束当前行并进行缓冲刷新（保证所有输出都写如输出流而不是在内存缓冲区中，可以防止程序崩溃输入未写入输出流中导致的错误位置误判）
+</code></pre>
+<h2 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h2><pre><code>单行注释：//
+  界定符对注释：/*，*/，注意：不能嵌套
+ctrl+k+c 快速注释选中内容
+ctrl+k+u快速取消选中注释内容
+ctrl+k+d快速对齐
+</code></pre>
+<h2 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h2><pre><code>while
+for
+文件结束符：eof，标志着文件的结束，windows系统中通过ctrl+z键来输入文件结束符
+if if(cin&lt;&lt;***)可以保证输入不为空。
+</code></pre>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><pre><code>调试时从系统给出的第一个错误开始调试，并且每修正一个错误后就重新调试。
+</code></pre>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><pre><code>成员函数也成为加法
+</code></pre>
 
       
     </div>
