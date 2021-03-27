@@ -75,6 +75,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cplus-const函数重载" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/27/cplus-const%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" class="article-date">
+  <time class="dt-published" datetime="2021-03-27T09:51:53.000Z" itemprop="datePublished">2021-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/27/cplus-const%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/">c++const函数重载</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="重载是什么"><a href="#重载是什么" class="headerlink" title="重载是什么"></a>重载是什么</h2><p>重载就是一个函数使用不同的参数列表，程序运行时会根据传递的参数类型来选择使用哪一个函数。<br>重载是在编译阶段已经完成，对于汇编和链接来说透明的。</p>
+<pre><code>class Test &#123;
+public:
+    int A(int&amp; a)&#123;return a;&#125;
+    int A(long&amp; a)&#123;return 2*a;&#125;
+    int A(const int&amp; a)&#123;return 3*a;&#125;//const参数重载
+    Test&amp; B(int&amp; a) &#123; cout &lt;&lt; &quot;type&quot; &lt;&lt; endl; return *this; &#125;
+    const Test&amp; B(int&amp; a) const &#123; cout &lt;&lt; &quot;const type&quot;&lt;&lt;endl; return *this; &#125;//const成员函数重载
+    &#125;;
+</code></pre>
+<h2 id="const参数重载"><a href="#const参数重载" class="headerlink" title="const参数重载"></a>const参数重载</h2><p>const参数保护传递过来的参数，使其不会被改变（所以值传递的参数使用const没有保护的作用，因为值传递的参数的改变不会改变原来参数的值）。<br>值传递的const参数重载会报错。<br>有const参数修饰的参数可以传入const值和非const值。<br>没有const参数修饰的参数不能传入const的值。</p>
+<pre><code>void main()&#123;
+    const int&amp; num1=1;
+    int x=1;
+    int&amp; num2=x;
+    Test t;
+    cout&lt;&lt;t.A(num1)&lt;&lt;endl;
+    cout&lt;&lt;t.A(num2)&lt;&lt;flush;
+&#125;
+</code></pre>
+<blockquote>
+<p>输出：<br>3<br>1</p>
+</blockquote>
+<h2 id="const成员函数重载"><a href="#const成员函数重载" class="headerlink" title="const成员函数重载"></a>const成员函数重载</h2><p>成员函数重载可以看作时对this指针进行const修饰的过程。<br>根据调用重载函数的对象类型，来决定返回的是const类型的this指针还是没有修饰的指针。</p>
+<pre><code>Test t1;
+const Test t2;
+int y = 100;
+int&amp; z = y;
+t1.B(z);//非const类调用非const成员函数
+t2.B(z);//const类调用const成员函数
+</code></pre>
+<blockquote>
+<p>输出：<br>type<br>const type</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/27/cplus-const%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/" data-id="ckmrq9nei00006gu4hhcy051z" data-title="c++const函数重载" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/03/26/1/" class="article-date">
@@ -394,9 +466,9 @@ int a=0;int &amp;b=a;b指向了a
 
 
   
-    <article id="post-c-学习笔记1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-cplus-学习笔记1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/03/27/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="article-date">
+    <a href="/2020/03/27/cplus-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="article-date">
   <time class="dt-published" datetime="2020-03-27T12:53:25.000Z" itemprop="datePublished">2020-03-27</time>
 </a>
     
@@ -408,7 +480,7 @@ int a=0;int &amp;b=a;b指向了a
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/03/27/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">c++学习笔记1</a>
+      <a class="p-name article-title" href="/2020/03/27/cplus-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">c++学习笔记1</a>
     </h1>
   
 
@@ -441,7 +513,7 @@ if if(cin&lt;&lt;***)可以保证输入不为空。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/03/27/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" data-id="ckmraxxic0001owu41swk5gvo" data-title="c++学习笔记1" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/03/27/cplus-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" data-id="ckmrq9neu00016gu444ib3s13" data-title="c++学习笔记1" class="article-share-link">Share</a>
       
       
       
@@ -628,6 +700,10 @@ if if(cin&lt;&lt;***)可以保证输入不为空。
       <ul>
         
           <li>
+            <a href="/2021/03/27/cplus-const%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD/">c++const函数重载</a>
+          </li>
+        
+          <li>
             <a href="/2021/03/26/1/">1</a>
           </li>
         
@@ -641,10 +717,6 @@ if if(cin&lt;&lt;***)可以保证输入不为空。
         
           <li>
             <a href="/2020/03/29/part1-2-%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-day2/">part1_2_变量和基本类型_day2</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/28/part1-2-%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-day1/">part1_2_变量和基本类型_day1</a>
           </li>
         
       </ul>
