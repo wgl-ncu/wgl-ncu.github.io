@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>part1_3_字符串向量数组_day1 | wgl的日常</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="#命名空间的using说明#    using namespace::name.    头文件不应包含using#标准库类型string#    定义与初始化：string s1;                             string s2&#x3D;s1;                             string s3&#x3D;&quot;hiya&quot;;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="part1_3_字符串向量数组_day1">
+<meta property="og:url" content="http://example.com/2020/03/30/part1-3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%91%E9%87%8F%E6%95%B0%E7%BB%84-day1/index.html">
+<meta property="og:site_name" content="wgl的日常">
+<meta property="og:description" content="#命名空间的using说明#    using namespace::name.    头文件不应包含using#标准库类型string#    定义与初始化：string s1;                             string s2&#x3D;s1;                             string s3&#x3D;&quot;hiya&quot;;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-30T15:05:42.000Z">
+<meta property="article:modified_time" content="2021-03-26T13:34:51.335Z">
+<meta property="article:author" content="WGL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="wgl的日常" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">wgl的日常</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">秃头</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-part1-3-字符串向量数组-day1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/30/part1-3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%91%E9%87%8F%E6%95%B0%E7%BB%84-day1/" class="article-date">
+  <time class="dt-published" datetime="2020-03-30T15:05:42.000Z" itemprop="datePublished">2020-03-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      part1_3_字符串向量数组_day1
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#命名空间的using说明#<br>    <code>using namespace::name.</code><br>    头文件不应包含using<br>#标准库类型string#<br>    定义与初始化：<code>string s1;                             string s2=s1;                             string s3=&quot;hiya&quot;;                             string s4(&quot;hiya&quot;);                             string s5(10,&#39;c&#39;);</code><br>        使用等号是拷贝初始化，不使用等号是直接初始化<br>    string操作，p77<br>    读写string对象：<br>        cin&gt;&gt;s;//遇到空格停止，如：“  abc  de”，s=”abc”.<br>        getline(cin,s);//遇到换行结束，会将换行符读入，但是不会将换行符写出。   如：“  abc  de”，s=”  abc  de”.<br>while(cin&gt;&gt;s)cout&lt;&lt;s&lt;&lt;endl;//输入未知数量的string。<br>s.empty(),空则返回true，否则返回false<br>s.size()返回s的长度，返回的类型是string::size_type,这是一个无符号整型数，与之对比的数也会被转化为无符号数，例如：s.size()&lt;-1,-1会被转化为一个很大的无符号数。<br>遇到s.size()时不要使用有符号数int与其计算。<br>字符串比较：==，!=,&lt;,&gt;……<br>string对象相加：两个字符串相加，得到一个新的字符串。<br>string和字面值相加：必须保证每一个＋的两边至少有一个string<br>                                <code>string s=s1+s2+&#39;aaa&#39;;√                                 string s=&#39;aaa&#39;+&#39;bbb&#39;+s2;×                                 string s=&#39;aaa&#39;+s2+&#39;bbb&#39;;</code>√从左到右依次相加<br>#处理string对象中的字符#<br>    cctype头文件，p82<br>    处理所有字符：范围for语句for(auto c:s)将s中的每一个字符依次转化为c。for(auto c,s)cout&lt;&lt;c;//打印s中的每一个字符。<br>                            改变字符串中的字符：将范围for语句中的循环变量定义为引用。for(auto &amp;c,s)c=toupper(c);cout&lt;&lt;s;//将s中的小写字母以大写输出。<br>    处理单个或多个字符：下标，s[0]~s[s.size()-1];<br>#标准库类型vector（容器）#<br>    头文件 #include<vector><br>    vector是模板，用&lt;&gt;来指定vector实例化成为什么样的类型。注意：类型不能是引用。<br>    定义和初始化vector类型对象：<br>        vector<T> v1/v1(v2)/v1=v2……<br>        vector<T>v(unsigned x，T s);圆括号里为元素个数，s为初始化的元素，省略则默认初始化。<br>        vector<T>v{Ts…};花括号为元素，写几个元素就包含几个元素。<br>        对于string类型，vector<T>v{10,”cd”}==vector<T>v(10,”cd”);//表示有10个cd。<br>    列表初始化：vector<T>v1{……};//只能使用花括号初始化。<br>    向vector中添加元素：push_back成员函数，将目标元素压入vector类型的尾部。v.push_back(1);//将1压入v的尾部。<br>    vector对象不建议定义大小。<br>    vector操作：类似string，不能使用下标来添加元素。<br>    为确保下标合法化建议尽可能使用范围for语句。<br>#迭代器#<br>    auto b=v.begin(),c=v.end();//begin指向第一个元素，end指向最后一个元素的下一位置，成为尾迭代器。<br>    如果容器为空，begin和end返回的是同一个迭代器，都是尾迭代器。<br>    对容器使用for语句时需要使用！=而非&lt;,&gt;因为容器元素并非支持&lt;,&gt;运算。<br>    迭代器的运算符：*iter；返回迭代器所指元素的引用。<br>                                ++iter，–tier。<br>                                c++11引入cbegin和cend专门获得常量类型的迭代器。<br>    结合解引用：(*it).empty()==it-&gt;empty()，it所指的对象是否为空。<br>    向一个容器中添加了元素，会使其迭代器失效。<br>    迭代器运算：+，-，&gt;,&lt;……</p>
+<p>#数组#<br>    数组大小确定不变。<br>    定义与初始化：数组的维度必须是常量表达式。int a[b];b必须是const unsigned而不能是unsigned<br>                            不允许使用引用的数组。int&amp;a[5];×<br>    显示初始化：int a[3]={1,2,3};<br>                        int a[]={1,2,3};<br>                        字符数组：可以用上述初始化方式和int c[]=”hello”;//c的长度为字符串长度加1，最后一格会加上一个空格。<br>    不允许使用一个数组初始化或者赋值给另一个数组。<br>    允许定义数组的指针以及数组的引用：int(*array)[10]=&arr;int(&amp;array)[10]=arr;//从括号内向外，再从左向右。<br>    在函数内部定义的数组默认初始化会给与不确定的值。<br>    数组与指针：int <em>p=nums;==int <em>p &amp;nums[0];<br>    一些情况下数组的操作是指针的操作。int ia[]={……};auto a2(ia); a2是指向ia首地址的指针。<br>    但是decltype(ia) a3={……};是正确的，decltype返回的是数组类型。<br>    指针也是迭代器：指针适用vector和string迭代器所支持的所有运算。<br>    a[10]数组。可以用int <em>p=a[10];来获得指向a数组尾元素下以位置的指针。类似于end迭代器。<br>    c++11引入begin和end函数来获取数组的头尾指针。头文件iterator<br>    int</em> first=begin(a);int</em> last=end(a);<br>    下标和指针：只要指针指向数组中的元素，指针可以进行下标运算。int</em>p=&amp;a[2];cout&lt;&lt;*(p+2);<br>    利用数组初始化容器：int a[]={1,2,3,4,5};vector<int>v(begin(a),end(a));<br>#多维数组#<br>    c++没有多维数组，只有数组的数组。<br>    int a[3][4];<br>    多维数组与指针：数组a中包含了3个元素，每个元素是拥有4个元素的数组。<br>    所以 数组a的指针是：int (*p)[4]=a/begin(a);//p是指向包含4个整型数组的指针。<br>    多维数组的初始化：int[3][[4]={ {1,2,3，3},{4,5,6，6},{7,8,9，9} };内层花括号非必须。<br>    使用范围for语句时，如果在最内层之外不使用引用，auto得到的类型会是指针，程序会无法编译。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/30/part1-3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%91%E9%87%8F%E6%95%B0%E7%BB%84-day1/" data-id="ckmqbvljj0000wwu4gzhyabbl" data-title="part1_3_字符串向量数组_day1" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/31/part1-4-%E8%A1%A8%E8%BE%BE%E5%BC%8F-day1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          part1_4_表达式_day1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/29/part1-2-%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-day2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">part1_2_变量和基本类型_day2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/1/" rel="tag">1</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/1/" style="font-size: 10px;">1</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/26/1/">1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/31/part1-4-%E8%A1%A8%E8%BE%BE%E5%BC%8F-day1/">part1_4_表达式_day1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/30/part1-3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%91%E9%87%8F%E6%95%B0%E7%BB%84-day1/">part1_3_字符串向量数组_day1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/part1-2-%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-day2/">part1_2_变量和基本类型_day2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/28/part1-2-%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B-day1/">part1_2_变量和基本类型_day1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 WGL<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
