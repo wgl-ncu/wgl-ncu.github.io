@@ -230,16 +230,16 @@ body::before {
   }
 }
 body {
-  cursor: url("https://github.com/wgl-ncu/wgl-ncu.github.io/blob/master/mouse/help.cur"), auto;
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/pointer.cur"), auto;
 }
 a {
-  cursor: url("https://github.com/wgl-ncu/wgl-ncu.github.io/blob/master/mouse/help.cur"), auto;
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur"), auto;
 }
 a:hover {
-  cursor: url("https://github.com/wgl-ncu/wgl-ncu.github.io/blob/master/mouse/help.cur"), auto;
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur"), auto;
 }
 .hty-icon-button {
-  cursor: url("https://github.com/wgl-ncu/wgl-ncu.github.io/blob/master/mouse/help.cur"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur"), pointer;
 }
 input {
   cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/text.cur"), auto;
@@ -806,7 +806,7 @@ input {
 }
 .wordcloud #wordcloud-canvas,
 .wordcloud #wordcloud-sidebar-canvas {
-  cursor: url("https://github.com/wgl-ncu/wgl-ncu.github.io/blob/master/mouse/help.cur"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur"), pointer;
 }
 .wordcloud #wordbox {
   pointer-events: none;
@@ -2211,7 +2211,7 @@ input {
   position: relative;
   width: 15rem;
   margin: 1.5rem;
-  cursor: url("https://github.com/wgl-ncu/wgl-ncu.github.io/blob/master/mouse/help.cur"), pointer;
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur"), pointer;
 }
 .photo-list-item img {
   box-sizing: border-box;
